@@ -6,7 +6,7 @@ const client = new Client({
   connectionString: process.env.DATABASE_URL,
 });
 client.connect();
-export async function GET() {
+export async function GET(req) {
   try {
         const result = await client.query('SELECT * FROM tbl_user');
         return new Response(JSON.stringify(result.rows), {
