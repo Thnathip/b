@@ -7,7 +7,7 @@ const client = new Client({
   connectionString: process.env.DATABASE_URL,
 });
 client.connect();
-export async function GET(request, { params }) {
+export async function GET({ params }) {
   try {
     const { id } = params;
     const result = await client.query("SELECT * FROM tbl_user WHERE id = $1", [
